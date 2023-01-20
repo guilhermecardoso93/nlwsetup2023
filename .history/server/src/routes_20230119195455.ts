@@ -81,10 +81,10 @@ export async function appRoutes(app: FastifyInstance) {
     const today = dayjs().startOf("day").toDate();
 
     let day = await prisma.day.findUnique({
-      where: {
+      where: { 
         date: today,
-      },
-    });
+      }
+    })
 
     if (!day) {
       day = await prisma.day.create({
@@ -119,7 +119,7 @@ export async function appRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/summary", async () => {
+  app.get('/summary', async () => {
     const summary = await prisma.$queryRaw`
       SELECT 
         D.id, 
@@ -141,8 +141,8 @@ export async function appRoutes(app: FastifyInstance) {
             AND H.created_at <= D.date
         ) as amount
       FROM days D
-    `;
+    `
 
-    return summary;
-  });
+    return summary
+  })
 }

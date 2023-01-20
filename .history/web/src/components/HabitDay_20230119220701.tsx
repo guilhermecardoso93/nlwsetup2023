@@ -14,12 +14,7 @@ export function HabitDay({ amount, completed }: HabitDayProps) {
     <Popover.Root>
       <Popover.Trigger 
         className={clsx('w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg', {
-          'bg-zinc-900 border-zinc-900': completedPercent === 0,
-          'bg-violet-900 border-violet-700': completedPercent >= 0 && completedPercent < 20,
-          'bg-violet-800 border-violet-600': completedPercent >= 20 && completedPercent < 40,
-          'bg-violet-700 border-violet-500': completedPercent >= 40 && completedPercent < 60,
-          'bg-violet-600 border-violet-500': completedPercent >= 60 && completedPercent < 80,
-          'bg-violet-500 border-violet-400': completedPercent >= 80,
+          'bg-violet-500': completedPercent >= 80,
         })} 
       
       />
