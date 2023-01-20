@@ -1,14 +1,12 @@
 import { TouchableOpacity, View, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { Feather } from '@expo/vector-icons'
 import colors from 'tailwindcss/colors'
 
 import Logo from "../assets/logo.svg"
-
+import { useNavigation } from "@react-navigation/native";
 
 export function Header() {
   const { navigate } = useNavigation()
-  
   return (
     <View className='w-full flex-row items-center justify-between'>
       <Logo />
