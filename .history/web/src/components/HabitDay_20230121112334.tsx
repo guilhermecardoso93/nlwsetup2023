@@ -8,28 +8,21 @@ import { ProgressBar } from "./ProgressBar";
 import { HabitList } from "./HabitList";
 
 interface HabitDayProps {
-  date: Date;
-  defaultCompleted?: number;
-  amount?: number;
+  date: Date
+  defaultCompleted?: number
+  amount?: number
 }
 
-export function HabitDay({
-  defaultCompleted = 0,
-  amount = 0,
-  date,
-}: HabitDayProps) {
-  const [completed, setCompleted] = useState(defaultCompleted);
+export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayProps) {
+  const [completed, setCompleted] = useState(defaultCompleted)
 
-  const completedPercent =
-    amount > 0 ? Math.round((completed / amount) * 100) : 0;
+  const completedPercent = amount > 0 ? Math.round((completed / amount) * 100) : 0;
 
-  const dayAndMonth = dayjs(date).format("DD/MM");
-  const dayOfWeek = dayjs(date).format("dddd");
-  const today = dayjs().startOf("day").toDate();
-  const isCurrentDay = dayjs(date).isSame(today);
+  const dayAndMonth = dayjs(date).format('DD/MM')
+  const dayOfWeek = dayjs(date).format('dddd')
 
   function handleCompletedChange(completed: number) {
-    setCompleted(completed);
+    setCompleted(completed)
   }
 
   return (
@@ -48,7 +41,6 @@ export function HabitDay({
             "bg-violet-600 border-violet-500":
               completedPercent >= 60 && completedPercent < 80,
             "bg-violet-500 border-violet-400": completedPercent >= 80,
-            "border-violet-100 border-4": isCurrentDay,
           }
         )}
       />
@@ -62,7 +54,7 @@ export function HabitDay({
 
           <ProgressBar progress={completedPercent} />
 
-          <HabitList date={date} onCompletedChanged={handleCompletedChange} />
+          <HabitList date={date} onCompletedChanged={handleCompletedChange}/>
 
           <Popover.Arrow className="fill-zinc-900" height={8} width={16} />
         </Popover.Content>

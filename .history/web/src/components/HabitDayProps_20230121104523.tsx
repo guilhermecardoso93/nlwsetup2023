@@ -1,5 +1,5 @@
 export interface HabitDayProps {
-  completed?: number;
+  defaultCompleted?: number;
   amount?: number;
   date: Date;
 }
