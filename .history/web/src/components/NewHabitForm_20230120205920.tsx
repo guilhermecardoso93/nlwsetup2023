@@ -73,7 +73,6 @@ export function NewHabitForm() {
             <Checkbox.Root
               className="flex items-center gap-3 group"
               key={day}
-              checked={weekDays.includes(index)}
               onCheckedChange={() => {
                 handleToggleWeekDay(index);
               }}

@@ -11,7 +11,6 @@ export function HabitDay({ completed = 0, amount = 0, date }: HabitDayProps) {
   const completedPercent = amount > 0 ? Math.round((completed / amount) * 100) : 0;
 
   const dayInMonth = dayjs(date).format('DD/MM')
-  const dayOfWeek = dayjs(date).format('dddd')
 
   return (
     <Popover.Root>
@@ -35,7 +34,7 @@ export function HabitDay({ completed = 0, amount = 0, date }: HabitDayProps) {
 
       <Popover.Portal>
         <Popover.Content className="min-w-[320px] p-6 rounded-2xl bg-zinc-900 flex flex-col">
-          <span className="font-semibold text-zinc-400">{dayOfWeek}</span>
+          <span className="font-semibold text-zinc-400">terça-feira</span>
           <span className="mt-1 font-extrabold leading-tight text-3xl">
             {dayInMonth}
           </span>

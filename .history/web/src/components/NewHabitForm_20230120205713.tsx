@@ -20,18 +20,15 @@ export function NewHabitForm() {
   async function createHabit(event: FormEvent) {
     event.preventDefault();
 
-    if (!title || weekDays.length === 0) {
-      return;
+    if(!title || weekDays.length === 0) {
+      return
     }
 
-    await api.post("habits", {
-      title,
-      weekDays,
-    });
+    await api.post('habits', {
+      title, weekDays
+    })
 
-    setTitle("");
-    setWeekDays([])
-    alert("Hábito salvo com sucesso!");
+    alert('Hábito salvo com sucesso!')
   }
 
   function handleToggleWeekDay(weekDay: number) {
@@ -58,7 +55,6 @@ export function NewHabitForm() {
         placeholder="ex.: Exercícios, dormir be, etc"
         autoFocus
         className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400"
-        value={title}
         onChange={(event) => {
           setTitle(event.target.value);
         }}
@@ -73,7 +69,6 @@ export function NewHabitForm() {
             <Checkbox.Root
               className="flex items-center gap-3 group"
               key={day}
-              checked={weekDays.includes(index)}
               onCheckedChange={() => {
                 handleToggleWeekDay(index);
               }}

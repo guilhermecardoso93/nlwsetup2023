@@ -40,7 +40,7 @@ export function HabitDay({ completed = 0, amount = 0, date }: HabitDayProps) {
             {dayInMonth}
           </span>
 
-          <ProgressBar progress={40} />
+          <ProgressBar progress={0} />
 
           <div className="mt-6 flex flex-col gap-3">
             <Checkbox.Root className="flex items-center gap-3 group">
