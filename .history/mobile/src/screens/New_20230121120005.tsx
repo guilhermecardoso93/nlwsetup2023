@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { Feather } from "@expo/vector-icons";
-import colors from "tailwindcss/colors";
-import { api } from "../lib/axios";
 import {
   Alert,
   ScrollView,
@@ -10,10 +7,11 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
+import { Feather } from "@expo/vector-icons";
 import { BackButton } from "../components/BackButton";
 import { Checkbox } from "../components/Checkbox";
-
+import colors from "tailwindcss/colors";
+import { api } from "../lib/axios";
 
 const availableWeekDays = [
   "Domingo",
@@ -53,7 +51,7 @@ export function New() {
       setTitle("");
       setWeekDays([]);
 
-      Alert.alert("Novo Hábito", "Hábito criado com sucesso!");
+      return Alert.alert("Novo Hábito", "Hábito criado com sucesso!");
     } catch (err) {
       console.log(err);
       Alert.alert("Ops!", "Não foi possível criar novos hábitos");
