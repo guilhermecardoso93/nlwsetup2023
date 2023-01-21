@@ -46,12 +46,10 @@ export function New() {
         );
       }
 
-      await api.post("/habits", { title, weekDays });
+      await api.post('/habits', { title, weekDays})
 
-      setTitle("");
-      setWeekDays([]);
-
-      Alert.alert("Novo Hábito", "Hábito criado com sucesso!");
+      setTitle('')
+      setWeekDays([])
     } catch (err) {
       console.log(err);
       Alert.alert("Ops!", "Não foi possível criar novos hábitos");

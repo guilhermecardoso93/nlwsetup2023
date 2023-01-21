@@ -21,11 +21,11 @@ type SummaryProps = Array<{
   date: string;
   amount: number;
   completed: number;
-}>;
+}>
 
 export function Home() {
   const [loading, setLoading] = useState(true);
-  const [summary, setSummary] = useState<SummaryProps | null>(null);
+  const [summary, setSummary] = useState<SummaryProps | null >(null);
   const { navigate } = useNavigation();
 
   async function fetchData() {
@@ -75,9 +75,6 @@ export function Home() {
                 return (
                   <HabitDay
                     key={date.toISOString()}
-                    date={date}
-                    amountOfHabits={dayWithHabit?.amount}
-                    amountCompleted={dayWithHabit?.completed}
                     onPress={() =>
                       navigate("habit", { date: date.toISOString() })
                     }
